@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { Button, Collapse, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { actions, fetchCharactersAll } from "../../redux/reducers";
+import { fetchCharactersAll } from "../../redux/reducers";
 import { isEqual } from 'lodash';
-import PaginationCharacters from "../pagination";
 
 const Filter = () => {
     const [open, setOpen] = useState(false);
@@ -13,20 +12,18 @@ const Filter = () => {
     const [type, setType] = useState("");
     const [gender, setGender] = useState("");
     const dispatch = useDispatch();
-    const {filterParameters} = useSelector(state => state.filterParameters);
+    const {filterParameters, loading} = useSelector(state => state);
 
     function handleSubmit(e){
         e.preventDefault();
-        console.log({name,status,species,type,gender});
-        console.log(filterParameters);
         if(isEqual({name,status,species,type,gender}, filterParameters)) return;
-        // if([name,status,species,type,gender].filter(el => el == "").length === 5) return;
         dispatch(fetchCharactersAll({filterParameters : {name, status, species, type, gender}, newPage: 1}));
     }
 
     return (
         <>
             <Button onClick={() => setOpen(!open)} aria-expanded={open}>{!open ? "Open" : "Close"} filter</Button>
+            {(loading) ? "Идет загрузка..." : "Загрузка завершена"}
             <div className="filter_block">
                 <Collapse in={open} className="filter">
                     <Form onSubmit={handleSubmit}>
