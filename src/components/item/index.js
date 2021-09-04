@@ -6,7 +6,7 @@ const CharactersListItem = (props) => {
     return (
         <Col md={3}>
             <Card>
-                <Card.Img variant="top" src={props.image} />
+                <Card.Img variant="top" src={props.image} alt={props.name}/>
                 <Card.Body>
                     <Card.Title>{props.name}</Card.Title>
                     <ListGroup variant="flush">

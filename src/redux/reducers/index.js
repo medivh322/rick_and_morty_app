@@ -14,7 +14,8 @@ const initialState = {
     openDetailModal: false,
     curPage: 1,
     countPages: 1,
-    loading: false
+    loading: false,
+    bigLoading: false
 }
 
 export const fetchCharactersAll = createAsyncThunk(
@@ -79,11 +80,17 @@ const rootReducer = createSlice({
             state.loading = false;
             [state.characters, state.filterParameters, state.countPages, state.curPage] = [[], action.payload, 1, 1]
         },
+        [fetchDetailCharacter.pending]: (state, action) => {
+            state.bigLoading = true;
+        },
         [fetchDetailCharacter.fulfilled]: (state, action) => {
             state.detailCharacter = action.payload;
             state.openDetailModal = true;
+            state.bigLoading = false;
         },
-        [fetchDetailCharacter.rejected]: (state, action) => console.log(action.error.message),
+        [fetchDetailCharacter.rejected]: (state, action) => {
+            state.bigLoading = false;
+        },
     }
 });
 

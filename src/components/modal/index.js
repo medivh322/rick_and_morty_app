@@ -22,7 +22,7 @@ const ModalDetail = () => {
                 <Modal.Title>{detailCharacter.name}</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <img src={detailCharacter.image} className="detailImg"/>
+                <img src={detailCharacter.image} alt={detailCharacter.name} className="detailImg"/>
                 <ul className="detaiList">
                     {Object.keys(detailCharacterObj).map((key,i) => 
                         <li className="detailList__item" key={i}>
