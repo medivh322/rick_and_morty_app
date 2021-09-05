@@ -4,7 +4,7 @@ import { fetchDetailCharacter } from "../../redux/reducers";
 const CharactersListItem = (props) => {
     const dispatch = useDispatch();
     return (
-        <Col md={3}>
+        <Col md={3} style={{marginBottom: "20px"}}>
             <Card>
                 <Card.Img variant="top" src={props.image} alt={props.name}/>
                 <Card.Body>

@@ -6,11 +6,11 @@ function CharactersList() {
     const characters = useSelector(state => state.characters);
     return (
         <Row>
-            {Array.isArray(characters) ? 
+            {characters.length !== 0 ? 
                 characters.map((elem) =>
                     <CharactersListItem key={elem.id} {...elem} />
                 )
-                : "Персонажи не найдены"
+                : <div className="not_found">NOT FOUND</div>
             }
         </Row>
     )
