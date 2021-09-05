@@ -71,6 +71,7 @@ const rootReducer = createSlice({
             state.loading = true;
         },
         [fetchCharactersAll.fulfilled]: (state, action) => {
+            window.scrollTo(0, 0);
             state.loading = false;
             state.curPage = Number(action.meta.arg.newPage);
             state.countPages = Number(action.payload.info.pages);
