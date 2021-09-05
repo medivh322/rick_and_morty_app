@@ -49,7 +49,7 @@ const Filter = () => {
                             <Form.Label className="d-block">Gender:</Form.Label>
                             <Form.Check inline onChange={(e) => setGender(e.target.value)} type="radio" id="genderFilter1" value="male" name="genderFilter" label="Male" />
                             <Form.Check inline onChange={(e) => setGender(e.target.value)} type="radio" id="genderFilter2" value="female" name="genderFilter" label="Female" />
-                            <Form.Check inline onChange={(e) => setGender(e.target.value)} type="radio" id="genderFilter3" value="genderless" name="genderFilter" label="Male" />
+                            <Form.Check inline onChange={(e) => setGender(e.target.value)} type="radio" id="genderFilter3" value="genderless" name="genderFilter" label="Genderless" />
                             <Form.Check inline onChange={(e) => setGender(e.target.value)} type="radio" id="genderFilter4" value="unknown" name="genderFilter" label="unknown" />
                         </Form.Group>
                         <Button variant="primary" type="submit">
